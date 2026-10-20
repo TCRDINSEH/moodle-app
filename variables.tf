@@ -23,7 +23,7 @@ variable "moodle_image" {
 variable "service_name" {
   description = "Cloud Run service name for Moodle."
   type        = string
-  default     = "moodle"
+  default     = "cve-dashboard-1"
 }
 
 variable "moodle_wwwroot" {
@@ -49,7 +49,7 @@ variable "sql_instance_name" {
 }
 
 variable "sql_tier" {
-  description = "Cloud SQL machine tier. The shared-core default is for demos only."
+  description = "Cloud SQL Enterprise edition machine tier. The shared-core default is for demos only."
   type        = string
   default     = "db-f1-micro"
 }
@@ -171,5 +171,5 @@ variable "scheduler_service_account_id" {
 variable "cron_job_name" {
   description = "Cloud Run Job name for Moodle's scheduled CLI tasks."
   type        = string
-  default     = "moodle-cron"
+  default     = "cve-scanner"
 }

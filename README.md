@@ -22,8 +22,9 @@ configured prefix (normally `cve-findings`).
   real student records.
 - Moodle still needs SQL for courses, accounts, grades, and application state.
   Cloud Run can scale to zero, but Cloud SQL continues to incur charges while
-  running. The shared-core SQL tier is a low-capacity demo setting, not a
-  production recommendation.
+  running. The instance uses Cloud SQL Enterprise edition to support the
+  shared-core SQL tier, a low-capacity demo setting and not a production
+  recommendation.
 - Terraform state contains the database and administrator passwords. Keep the
   local state and `terraform.tfvars` private; use a secured remote backend if
   sharing this deployment.
@@ -116,7 +117,7 @@ Edit `terraform.tfvars`:
 
 - Set the project ID and `moodle_image` to the image just pushed.
 - Set `moodle_wwwroot` to the Cloud Run URL for the `moodle` service. For this
-  project it is `https://moodle-720054743088.asia-south1.run.app`. You can check
+  project it is `https://cve-dashboard-720054743088.asia-south1.run.app`. You can check
   a service URL with
   `gcloud.cmd run services describe moodle --region $Region --project $Project --format="value(uri)"`.
 - Set `moodledata_bucket_name` to the name of the existing bucket you want to
